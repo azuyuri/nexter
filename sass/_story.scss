@@ -2,10 +2,52 @@
   &__pictures {
     background-color: $color-primary;
     grid-column: full-start / col-end 4;
+    background-image: linear-gradient(rgba($color-primary, 0.5), rgba($color-primary, 0.5)), url(../img/back.jpg); // 背景画像の色をなじませる
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr); // 6x6のgridを作成
+    align-items: center; // 指定したgridの中央に配置
   }
+
+  &__img--1 {
+    width: 100%;
+    grid-row: 2 / 6; // 行番号の2から6を指定
+    grid-column: 2 / 6;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.1);
+  }
+
+  &__img--2 {
+    width: 115%; // 右にはみ出すよう拡大
+    z-index: 20; // はみ出た分を表示
+    grid-row: 4 / 7;
+    grid-column: 4 / 7;
+    box-shadow: 0 2rem 5rem rgba(#000, 0.2);
+  }
+
   &__content {
     background-color: $color-grey-light-1;
     grid-column: col-start 5 / full-end;
+    padding: 6rem 8vw; // 左右10vw = 横幅はビューポート幅によって変化
+
+    /*
+    ! Flexboxの場合
+    display: flex;
+    flex-direction: column; // 並び順を縦に変更
+    justify-content: center; // 全体を中央揃えに変更
+    align-items: flex-start; // アイテムを左詰めに変更
+    */
+
+    //! CSS gridの場合
+    display: grid;
+    align-content: center; // 全体を中央揃え
+    justify-items: start; // 左詰め
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 4rem;
   }
 
 }
