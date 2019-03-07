@@ -1,0 +1,34 @@
+.features {
+  // background-color: $color-grey-light-2;
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+  // grid-template-rows: auto auto; これがオートで適用
+
+  // grid-template-columns: repeat(3, 1fr); //! レスポンシブ対応 ↓ まで使用
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // レスポンシブ
+  grid-gap: 6rem;
+  align-items: start; // 短い行を上につめる
+}
+
+.feature {
+
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+  
+  &__icon {
+    fill: $color-primary; // svgを塗りつぶす
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2; // 1 / -1 だと働かないのでこうする
+    transform: translateY(-1rem); // アイコンを上に移動
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}
