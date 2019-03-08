@@ -2,4 +2,30 @@
   background-color: $color-primary-dark;
   grid-column: sidebar-start / sidebar-end;
   grid-row: 1 / -1; // 縦に最初から最後まで
+
+  display: flex;
+  justify-content: center; // 三本線の位置を調節
+}
+
+// ハンバーガーメニュー
+.nav-btn {
+  border: none;
+  border-radius: 0; // 線の端を完全に丸く
+  
+  background-color: #fff;
+  height: 2px;
+  width: 4.5rem;
+  margin-top: 4rem; // 三本表示
+  
+  &::before,
+  &::after {
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    content: "";
+    display: block; // 空のコンテントをブロックとして表示
+  }
+
+  &::before { transform: translateY(-1.5rem); }
+  &::after { transform: translateY(1.3rem); }
 }
