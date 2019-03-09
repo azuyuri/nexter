@@ -1,4 +1,57 @@
 .header {
   background-color: $color-grey-dark-1;
   grid-column: full-start / col-end 6; // 列番号6まで
+  background-image: linear-gradient(rgba($color-secondary, 0.93), rgba($color-secondary, 0.93)),
+  url(../img/hero.jpeg); // 背景画像を暗く
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  display: grid;
+  grid-template-rows: 1fr min-content 6rem 1fr; // コンテントを横幅いっぱいに
+  grid-template-columns: max-content; // コンテストの位置は一番長いテキストを基準にする
+  grid-row-gap: 1.5rem;
+
+  // nexter
+  &__logo {
+    height: 3rem;
+    justify-self: center; // 水平方向に中央揃え
+  }
+
+  &__btn {
+    align-self: start;
+    justify-self: start; // ボタンをグリッドの左上詰めに
+  }
+
+  &__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center; // 横軸に整列
+    
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    // ::before=左の線、::after=右の線をグリッドコンテナ化する
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor; // 現在のテキストの色を適用
+    }
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+    justify-items: center;
+
+    img {
+      height: 2.5rem;
+      filter: brightness(70%); // ロゴを少し暗く
+    }
+  }
 }
