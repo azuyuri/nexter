@@ -5,6 +5,14 @@
 
   display: flex;
   justify-content: center; // 三本線の位置を調節
+
+  // ? 1000px でサイドバーを上に移動
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    justify-content: flex-end; // ハンバーガーアイコンを右上に
+    align-items: center;
+  }
 }
 
 // ハンバーガーメニュー
@@ -28,4 +36,13 @@
 
   &::before { transform: translateY(-1.5rem); }
   &::after { transform: translateY(1.3rem); }
+
+  // ? 1000px ハンバーガーアイコンの微調整
+  @media only screen and (max-width: $bp-large) {
+    margin-top: 0;
+    margin-right: 3rem;
+
+    &::before { transform: translateY(-1.2rem); }
+    &::after { transform: translateY(1rem); }
+  }
 }

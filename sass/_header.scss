@@ -9,9 +9,19 @@
   padding-top: 4rem;
 
   display: grid;
-  grid-template-rows: 1fr min-content 6rem 1fr; // コンテントを横幅いっぱいに
-  grid-template-columns: max-content; // コンテストの位置は一番長いテキストを基準にする
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr; // ? 縦にタイトルが重ならないようにする / コンテントを横幅いっぱいに
+  grid-template-columns: minmax(min-content, max-content); // ? コンテストの位置は一番長いテキストを基準にする
   grid-row-gap: 1.5rem;
+
+  // ? 800px 幅いっぱいに変化
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+  }
+
+  // ? 600px
+  @media only screen and (max-width: $bp-small) {
+    padding: 5rem;
+  }
 
   // nexter
   &__logo {
@@ -48,9 +58,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 3rem;
     justify-items: center;
+    align-items: center; // ? 
 
     img {
-      height: 2.5rem;
+      max-height: 2.5rem; // ? height -> max-height
+      max-width: 100%; // ? 
       filter: brightness(70%); // ロゴを少し暗く
     }
   }

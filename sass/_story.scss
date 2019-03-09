@@ -3,11 +3,18 @@
     background-color: $color-primary;
     grid-column: full-start / col-end 4;
     background-image: linear-gradient(rgba($color-primary, 0.5), rgba($color-primary, 0.5)), url(../img/back.jpg); // 背景画像の色をなじませる
+    background-size: cover;
 
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(6, 1fr); // 6x6のgridを作成
     align-items: center; // 指定したgridの中央に配置
+
+    // ? 800px 幅いっぱいに変化
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+      padding: 6rem;
+    }
   }
 
   &__img--1 {
@@ -15,14 +22,26 @@
     grid-row: 2 / 6; // 行番号の2から6を指定
     grid-column: 2 / 6;
     box-shadow: 0 2rem 5rem rgba(#000, 0.1);
+
+    // ? 800px 表示位置を調整
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 5;
+      grid-row: 1 / -1;
+    }
   }
 
   &__img--2 {
     width: 115%; // 右にはみ出すよう拡大
     z-index: 20; // はみ出た分を表示
-    grid-row: 4 / 7;
+    grid-row: 4 / 6;
     grid-column: 4 / 7;
     box-shadow: 0 2rem 5rem rgba(#000, 0.2);
+
+    // ? 800px 表示位置を調整
+    @media only screen and (max-width: $bp-medium) {
+      grid-row: 1 / -1;
+      width: 100%;
+    }
   }
 
   &__content {
@@ -42,6 +61,12 @@
     display: grid;
     align-content: center; // 全体を中央揃え
     justify-items: start; // 左詰め
+
+    // ? 800px 幅いっぱいに変化
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+      grid-row: 5 / 6; // 順番を変更
+    }
   }
 
   &__text {
